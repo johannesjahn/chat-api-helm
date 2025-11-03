@@ -30,7 +30,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: db-pvc
 spec:
-  storageClassName: ''
+  storageClassName: ""
   selector:
     matchLabels:
       type: database
@@ -60,10 +60,10 @@ spec:
             claimName: db-pvc
       containers:
         - name: database
-          image: postgres:17.5
+          image: postgres:18.0
           volumeMounts:
             - name: db-volume
-              mountPath: /var/lib/postgresql/data
+              mountPath: /var/lib/postgresql/18/docker
           ports:
             - containerPort: 5432
           envFrom:
