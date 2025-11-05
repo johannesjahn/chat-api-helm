@@ -17,6 +17,13 @@ spec:
                 name: chat-api
                 port:
                   number: 3000
+          - path: /api-json
+            pathType: Prefix
+            backend:
+              service:
+                name: chat-api
+                port:
+                  number: 3000
           - path: /adminer
             pathType: Prefix
             backend:
