@@ -12,7 +12,7 @@ jobs:
       - name: Sync ArgoCD Application
         uses: omegion/argocd-actions@v1
         with:
-          address: "cluster.johannes-jahn.com"
+          address: ${{ vars.ARGOCD_ADDRESS }}
           token: ${{ secrets.ARGOCD_TOKEN }}
           action: sync
           appName: ${{ vars.ARGOCD_APP_NAME }}
