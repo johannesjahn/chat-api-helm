@@ -3,7 +3,7 @@ volumeBasePath: /home/nacho/chat-api
 images:
   backend:
     name: johannesjahn/chat-api
-    version: 2.1.109
+    version: 2.1.110
   frontend:
     name: johannesjahn/nacho-chat
     version: 1.6.71
