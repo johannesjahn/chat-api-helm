@@ -60,7 +60,7 @@ spec:
             claimName: db-pvc
       containers:
         - name: database
-          image: postgres:18.0
+          image: postgres:18.1
           volumeMounts:
             - name: db-volume
               mountPath: /var/lib/postgresql/18/docker
