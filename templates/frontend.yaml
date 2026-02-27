@@ -15,7 +15,14 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: '{{ .Values.images.frontend.name }}:{{ .Values.images.frontend.version }}'
+          image: "{{ .Values.images.frontend.name }}:{{ .Values.images.frontend.version }}"
+          resources:
+            limits:
+              cpu: 200m
+              memory: 128Mi
+            requests:
+              cpu: 10m
+              memory: 64Mi
           ports:
             - containerPort: 80
 ---

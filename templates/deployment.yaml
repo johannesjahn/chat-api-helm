@@ -11,7 +11,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: '{{ .Values.volumeBasePath }}/avatars'
+    path: "{{ .Values.volumeBasePath }}/avatars"
     type: DirectoryOrCreate
 ---
 apiVersion: v1
@@ -19,7 +19,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: avatars-pvc
 spec:
-  storageClassName: ''
+  storageClassName: ""
   selector:
     matchLabels:
       type: avatars
@@ -32,7 +32,7 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: 'chat-api'
+  name: "chat-api"
 spec:
   replicas: 1
   selector:
@@ -52,11 +52,18 @@ spec:
             claimName: avatars-pvc
       containers:
         - name: chat-api
-          image: '{{ .Values.images.backend.name }}:{{ .Values.images.backend.version }}'
+          image: "{{ .Values.images.backend.name }}:{{ .Values.images.backend.version }}"
+          resources:
+            limits:
+              cpu: "3"
+              memory: 4Gi
+            requests:
+              cpu: 750m
+              memory: 1Gi
           command:
             - bash
             - -c
-            - 'node dist/main.js'
+            - "node dist/main.js"
           volumeMounts:
             - name: avatars-volume
               mountPath: /usr/app/avatars
