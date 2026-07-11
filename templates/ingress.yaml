@@ -24,13 +24,6 @@ spec:
                 name: chat-api
                 port:
                   number: 3000
-          - path: /adminer
-            pathType: Prefix
-            backend:
-              service:
-                name: adminer
-                port:
-                  number: 8080
           - path: /app
             pathType: Prefix
             backend:
