@@ -6,7 +6,7 @@ images:
     version: 2.1.328
   frontend:
     name: johannesjahn/nacho-chat
-    version: 1.6.191
+    version: 1.6.193
 secrets:
   DB_USER: 'chat'
   DB_PASS: 'chat2'
